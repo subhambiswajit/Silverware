@@ -99,6 +99,17 @@ DATABASES = {
     }
 }
 
+FIREBASE = {
+    'apiKey': "AIzaSyBuFCG7LAjhRx1oJBCpf8aZqd2CjSeXhzc",
+    'authDomain': "silverware-2315e.firebaseapp.com",
+    'projectId': "silverware-2315e",
+    'storageBucket': "silverware-2315e.appspot.com",
+    'messagingSenderId': "840383312064",
+    'appId': "1:840383312064:web:bf50c1c0d04de3f9a83d25",
+    'measurementId': "G-7KT90GFH61",
+    'databaseURL': ""
+    }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
