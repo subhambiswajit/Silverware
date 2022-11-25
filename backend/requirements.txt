@@ -1,0 +1,9 @@
+Django
+django-cors-headers
+djangorestframework
+djangorestframework-simplejwt
+requests
+pyrebase4
+mysqlclient
+django-filter
+mysqlclient
