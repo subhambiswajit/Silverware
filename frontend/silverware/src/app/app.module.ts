@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatNativeDateModule} from '@angular/material/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from "../environments/environment.dev";
 import { AuthService } from './services/auth/auth.service'; 
@@ -22,12 +23,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { UpdateComponent } from './components/update/update.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    UpdateComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
+    MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     
   ],
@@ -54,6 +60,7 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     AuthService,
     FirebaseService
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
