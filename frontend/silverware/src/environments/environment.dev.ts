@@ -19,8 +19,7 @@ export const environment = {
     registerUser: '/users/register/',
     loginUser: '/signin/',
     user: {
-        userbyid: '/users/',
-        userDetails:'/signin/user'
+        userbyid: '/users/user/'
     },
   },
 };

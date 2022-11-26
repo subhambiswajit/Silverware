@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import AllowAny
 from rest_framework import status
@@ -7,6 +6,7 @@ from .models import User as SvwUser
 from .serializers import UserResponseSerializer
 from apps.svwusers.services import firebase
 from apps.svwusers.utils.jwttoken import generate_access_token
+from  apps.svwusers.permissions.isuserloggedin import IsUserLoggedIn
 
 @api_view(['POST'])
 @authentication_classes([])
@@ -76,3 +76,18 @@ def new_user(request, firebase_user_id):
         response = UserResponseSerializer(new_svw_user, many=False)
         return JsonResponse(response.data, status=201)
     return JsonResponse({}, status=404)
+
+@api_view(['GET'])
+@permission_classes([IsUserLoggedIn])
+def get_user(request, firebase_user_id):
+    '''
+    API: users_list
+    payload: {
+    }
+    success response: list<User>
+    '''
+    if request.method == 'GET':
+        svw_user = SvwUser.objects.get(svw_firebaseid=firebase_user_id, svw_isdeleted=False)
+        user_serializer = UserResponseSerializer(svw_user, many=False)
+        return JsonResponse(user_serializer.data, safe=False)
+    return JsonResponse({request.data}, status=404)

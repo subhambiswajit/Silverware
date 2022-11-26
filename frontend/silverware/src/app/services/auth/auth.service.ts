@@ -3,8 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from "src/environments/environment.dev";
 import { catchError, Observable, of } from 'rxjs';
 import { FirebaseToken} from '../../models/requests/firebasetoken';
-import { SilverwareSigninResponse } from '../../models/responses/user';
+import { SilverwareSigninResponse, User } from '../../models/responses/user';
 import { UserDetails } from 'src/app/models/responses/user';
+import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageModel } from 'src/app/models/local-storage/localStorage.model';
 
 
 @Injectable({
@@ -12,7 +14,7 @@ import { UserDetails } from 'src/app/models/responses/user';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
 
   registerUserToSilverware(token: string, userid: string): Observable<any> {
     const requestObj: FirebaseToken = {
@@ -33,8 +35,9 @@ export class AuthService {
     )
   }
 
-  getSignedInUser(): Observable<UserDetails> {
-    return this.http.get<UserDetails>(environment.apiServer+environment.apiUrls.user.userDetails);
+  getSignedInUser(): Observable<User> {
+    let userid = this.localStorageService.getItem(LocalStorageModel.userId);
+    return this.http.get<User>(environment.apiServer+environment.apiUrls.user.userbyid+userid);
   }
 
   private handleError<T>(operation:any , result?: T) {

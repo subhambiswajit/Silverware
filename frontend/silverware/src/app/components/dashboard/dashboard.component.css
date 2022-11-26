@@ -1,0 +1,21 @@
+
+.svw-icon {
+    padding: 0 14px;
+  }
+ .svw-spacer {
+    flex: 1 1 auto;
+  }
+
+.svw-profile-photo {
+    width:50%;
+    border-radius: 50%;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
