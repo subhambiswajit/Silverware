@@ -83,11 +83,17 @@ export class FirebaseService{
   logout() {
     this.auth.signOut().then(
       success => {
+        this.clearAuthStates();
         console.log('Logout success', success);
         this.router.navigate(['/'])
       })
       .catch(err => {
         console.log('Error in logout');
     });
+  }
+
+  clearAuthStates() {
+    this.localStorageService.removeItem(LocalStorageModel.autheticationToken);
+    this.localStorageService.removeItem(LocalStorageModel.userId);
   }
 }

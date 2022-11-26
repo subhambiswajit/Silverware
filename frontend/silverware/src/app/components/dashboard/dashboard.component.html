@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span *ngIf="userDetails.svw_name">{{userDetails.svw_name}}</span>
+      <span class="svw-spacer"></span>
+      <button mat-icon-button class="svw-icon logout-icon" aria-label="Signout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-grid-list cols="5" rowHeight="1:2">
+    <mat-grid-tile>&nbsp;</mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar style="background-image:url({{userDetails.svw_photoUrl}})"></div>
+              <mat-card-title>{{userDetails.svw_name}}</mat-card-title>
+              <mat-card-subtitle>Profile</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image *ngIf="userDetails.svw_photoUrl" src="{{userDetails.svw_photoUrl}}" alt="profile">
+            <br>
+            <mat-card-content style="text-align: center;">
+              <p>
+                <span style="font-weight: bold;text-align: center;">Email: {{userDetails.svw_email}}</span>
+              </p>
+            </mat-card-content>
+            <mat-card-actions >
+                <button mat-icon-button class="svw-icon logout-icon" aria-label="Edit Profile" (click)="logout()">
+                    <mat-icon style="text-align: right;">rule</mat-icon>
+                  </button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>&nbsp;</mat-grid-tile>
+    <mat-grid-tile>&nbsp;</mat-grid-tile>
+  </mat-grid-list>
+
+ 
