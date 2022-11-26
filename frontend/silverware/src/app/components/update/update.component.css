@@ -1,0 +1,17 @@
+.update-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+.container-data > * {
+    width: 50%;
+    margin:auto;
+  }
+.svw-card {
+    width:50%;
+}
+.svw-profile-photo{
+    width: 29%;
+    text-align: center;
+    margin: auto;
+}
