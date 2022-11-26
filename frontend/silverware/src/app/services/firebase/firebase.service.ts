@@ -76,7 +76,7 @@ export class FirebaseService{
             });
         }
     }).catch( error => {
-      console.error('login to parker failed, invalid google user')
+      console.error('login to silverware failed, invalid google user')
     });
   }
 
