@@ -43,6 +43,10 @@ jobs:
       - name: Build backend docker image
         run: cd backend/silverware && docker build -t ${{ env.GCP_REGISTRY }}/silverware-369717/silverware/backend:latest .
       
+      - name: Push docker backend Image to GCR (Google cloud registry)
+        run: docker push ${{ secrets.GCP_REGISTRY }}/silverware-369717/silverware/backend:latest
+      
+      
   Frontend:
     runs-on: ubuntu-latest
     steps:
@@ -66,4 +70,7 @@ jobs:
         
       - name: Build backend docker image
         run: cd frontend/silverware && docker build -t ${{ env.GCP_REGISTRY }}/silverware-369717/silverware/frontend:latest .
+
+      - name: Push docker frontend Image to GCR (Google cloud registry)
+        run: docker push ${{ secrets.GCP_REGISTRY }}/silverware-369717/silverware/frontend:latest
 
