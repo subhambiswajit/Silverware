@@ -64,6 +64,7 @@ export class UpdateComponent {
         this.auth.getSignedInUser().subscribe(
           {
             next: response => {
+              console.log(response);
               this.userDetails = response
             },
             error: error => {
@@ -96,6 +97,9 @@ export class UpdateComponent {
       })
     }
   
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard'])
+  }
   getInvalidNameErrorMessage() {
     return this.requiredNamefield.hasError('required') ? 'Please provide your name' :
             '';

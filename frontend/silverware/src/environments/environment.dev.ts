@@ -13,7 +13,7 @@ export const environment = {
     appId: "1:840383312064:web:bf50c1c0d04de3f9a83d25",
     measurementId: "G-7KT90GFH61"
   },
-  apiServer: 'https://backend-yopxzgdubq-uc.a.run.app',
+  apiServer: 'http://localhost:8000',
   apiUrls: {
     registerUser: '/users/register/',
     loginUser: '/signin/',

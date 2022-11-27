@@ -88,6 +88,14 @@
             <mat-hint align="end">{{address.value?.length || 0}}/50</mat-hint>
         </mat-form-field>
         <br>
-        <button mat-raised-button color="primary" style="width:150px;" (click)="userProfileUpdate()">Update Profile</button>
+        <table  cellspacing="0">
+            <tr>
+                <td>
+                    <button mat-raised-button style="width:150px;" (click)="navigateToDashboard()">Back</button>
+                <td> 
+                    <button mat-raised-button color="primary" style="width:150px;" (click)="userProfileUpdate()">Update Profile</button>
+                </td>
+            </tr>
+        </table>
       </div>
   </div>

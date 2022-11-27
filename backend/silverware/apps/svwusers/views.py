@@ -88,7 +88,7 @@ def get_user(request, firebase_user_id):
     API: users_list
     payload: {
     }
-    success response: list<User>
+    success response: User
     '''
     if request.method == 'GET':
         svw_user = SvwUser.objects.get(svw_firebaseid=firebase_user_id, svw_isdeleted=False)

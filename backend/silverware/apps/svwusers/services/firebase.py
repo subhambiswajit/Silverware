@@ -1,5 +1,5 @@
 '''
-Service: Parker firebase service,
+Service: Silverware firebase service,
 Type: third party
 '''
 import pyrebase
@@ -7,7 +7,7 @@ from django.conf import settings
 
 def get_user_profile_bytoken(token):
     '''
-        Service: Parker firebase service
+        Service: Silverware firebase service
         payload: {
                 token: firebase token
             }

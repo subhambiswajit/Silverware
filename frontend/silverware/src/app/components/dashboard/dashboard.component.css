@@ -8,3 +8,26 @@
     max-width: 400px;
     margin:auto;
 }
+.mat-mdc-card-header-text {
+    width:73% !important;
+}
+
+mat-card-actions {
+    padding-top:0px !important;
+}
+
+svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+}
+
+mat-card-content {
+    text-align: justify;
+    font-size: 15px;
+}
+
+
+

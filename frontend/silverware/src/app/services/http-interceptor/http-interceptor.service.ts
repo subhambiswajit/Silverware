@@ -17,8 +17,8 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const jwtToken = this.localStorageService.getItem(LocalStorageModel.autheticationToken);
-    const isParkersUrl = request.url.startsWith(environment.apiServer);
-    if (jwtToken && isParkersUrl) {
+    const isSvwUrl = request.url.startsWith(environment.apiServer);
+    if (jwtToken && isSvwUrl) {
         request = request.clone({
             setHeaders: { Authorization: "Bearer "+ jwtToken }
         });

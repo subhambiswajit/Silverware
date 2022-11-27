@@ -12,10 +12,6 @@ export interface User {
     svw_telephone: string;
   }
 
-export interface UserDetails {
-  user: User
-}
-
 
 export interface SilverwareSigninResponse {
   svw_token: string,
