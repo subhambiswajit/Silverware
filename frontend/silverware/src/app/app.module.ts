@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from "../environments/environment.dev";
 import { AuthService } from './services/auth/auth.service'; 
@@ -25,7 +27,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { UpdateComponent } from './components/update/update.component';
 import { HeaderComponent } from './components/header/header.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatToolbarModule,
     MatCardModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     
   ],

@@ -121,6 +121,8 @@ def update_user(request, firebase_user_id):
             svw_user.svw_name = request.data['svw_name']
         if request.data['svw_address'] and request.data['svw_address'] != svw_user.svw_address:
             svw_user.svw_address = request.data['svw_address']
+        if request.data['svw_dob'] and request.data['svw_dob'] != svw_user.svw_dob:
+            svw_user.svw_dob = datetime.datetime.fromisoformat(request.data['svw_dob'][:-1] + '+00:00')
         if request.data['svw_bio'] and request.data['svw_bio'] != svw_user.svw_bio:
             svw_user.svw_bio = request.data['svw_bio']
         if request.data['svw_telephone'] and request.data['svw_telephone'] != svw_user.svw_telephone:

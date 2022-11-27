@@ -24,7 +24,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     svw_userCreatedOn = models.DateTimeField(auto_now_add=True)
     svw_photoUrl = models.CharField(max_length=500, default="NA")
     svw_bio = models.TextField(max_length=500, blank=True, null=True)
-    svw_dob = models.DateField(blank=True, null=True)
+    svw_dob = models.DateTimeField(blank=True, null=True)
     svw_address = models.TextField(max_length=500, blank=True, null=True)
     svw_city =  models.CharField(max_length=20, blank=True, null=True)
     svw_province = models.CharField(max_length=2, blank=True, null=True)
