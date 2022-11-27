@@ -47,7 +47,7 @@ jobs:
         run:  echo "GCP_REGISTRY=${{secrets.GCP_REGISTRY}}" >> $GITHUB_ENV
         
       - name: Build backend docker image
-        run: cd backend && docker build -t "${{ env.GCP_REGISTRY }}{{env.DOCKERBACKENDIMAGE}}:latest ."
+        run: cd backend && docker build -t ${{ env.GCP_REGISTRY }}/silverware-369717/silverware/backend:latest .
       
 
           
