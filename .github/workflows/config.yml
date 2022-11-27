@@ -35,7 +35,7 @@ jobs:
         with:
           registry: ${{ secrets.GCR }}
           username: _json_key
-          password: ${{ secrets.GCP_CREDS }}
+          password: '${{ secrets.GCP_CREDS }}'
         
       - name: generating frontend image name 
         run: echo "DOCKERFRONTENDIMAGE=silverwaredev-frontend-${{ env.branch }}-${{ env.jobid }}" >> $GITHUB_ENV
