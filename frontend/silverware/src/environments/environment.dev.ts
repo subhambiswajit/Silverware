@@ -18,7 +18,8 @@ export const environment = {
     registerUser: '/users/register/',
     loginUser: '/signin/',
     user: {
-        userbyid: '/users/user/'
+        userbyid: '/users/user/',
+        updateUser: '/users/user/update/'
     },
   },
 };

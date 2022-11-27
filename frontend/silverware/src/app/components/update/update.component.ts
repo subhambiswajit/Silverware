@@ -4,6 +4,8 @@ import {FormControl, Validators} from '@angular/forms';
 import { User } from 'src/app/models/responses/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FirebaseService } from 'src/app/services/firebase/firebase.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { LocalStorageModel } from 'src/app/models/local-storage/localStorage.model';
 
 @Component({
   selector: 'app-update',
@@ -43,10 +45,10 @@ export class UpdateComponent {
     { name: "Northwest Territories", value: "NT"},
     { name: "Nunavut", value: "NU"},
   ]
-  email = new FormControl(this.userDetails.svw_email, [Validators.required, Validators.email]);
   constructor(private auth: AuthService, 
     private firebase: FirebaseService,
-    private router: Router)
+    private router: Router, 
+    private localStorageService : LocalStorageService)
     {
         this.auth.getSignedInUser().subscribe(
           {
@@ -60,9 +62,17 @@ export class UpdateComponent {
           }
         )
     }
-    getErrorMessage() {
-      return this.email.hasError('required') ? 'You must enter a value' :
-          this.email.hasError('email') ? 'Not a valid email' :
-              '';
+  
+  userProfileUpdate() {
+      let userid = this.localStorageService.getItem(LocalStorageModel.userId) || "";
+      this.auth.updateSilverwareUser(this.userDetails, userid).subscribe({
+        next: response => {
+          console.log(response)
+        },
+        error: error => {
+          this.firebase.logout()
+          console.error(error)
+        }
+      })
     }
 }

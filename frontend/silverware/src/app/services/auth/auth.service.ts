@@ -4,7 +4,6 @@ import { environment } from "src/environments/environment.dev";
 import { catchError, Observable, of } from 'rxjs';
 import { FirebaseToken} from '../../models/requests/firebasetoken';
 import { SilverwareSigninResponse, User } from '../../models/responses/user';
-import { UserDetails } from 'src/app/models/responses/user';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { LocalStorageModel } from 'src/app/models/local-storage/localStorage.model';
 
@@ -22,7 +21,7 @@ export class AuthService {
     }
     return this.http.put<FirebaseToken>(environment.apiServer+environment.apiUrls.registerUser+userid, requestObj)
     .pipe(
-      catchError(this.handleError('Register user to parker', requestObj))
+      catchError(this.handleError('Register user to Silverware', requestObj))
     )
   }
   loginUserToSilverware(token: string): Observable<SilverwareSigninResponse> {
@@ -31,10 +30,18 @@ export class AuthService {
     }
     return this.http.post<FirebaseToken>(environment.apiServer+environment.apiUrls.loginUser, requestObj)
     .pipe(
-      catchError(this.handleError('Login user to parker', requestObj))
+      catchError(this.handleError('Login user to Silverware', requestObj))
     )
   }
 
+  updateSilverwareUser(user: User, userId: string): Observable<any> {
+    const requestObj: User = user; 
+    return this.http.put<User>(environment.apiServer+environment.apiUrls.user.updateUser+userId, requestObj)
+    .pipe(
+      catchError(this.handleError('Update user details in Silverware', requestObj))
+    )
+    
+  }
   getSignedInUser(): Observable<User> {
     let userid = this.localStorageService.getItem(LocalStorageModel.userId);
     return this.http.get<User>(environment.apiServer+environment.apiUrls.user.userbyid+userid);

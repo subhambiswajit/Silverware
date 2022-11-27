@@ -27,6 +27,6 @@ class UserResponseSerializer(serializers.ModelSerializer):
         fields = ['svw_name', 'svw_email', 'svw_photoUrl', 
         'svw_firebaseid', 'svw_bio', 'svw_dob', 
         'svw_address', 'svw_telephone', 'svw_city',
-        'svw_province', 'svw_postalcode', 'svw_country'
+        'svw_province', 'svw_postalcode'
         ]
         app_label = 'User'
