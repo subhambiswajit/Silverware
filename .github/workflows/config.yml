@@ -87,6 +87,6 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v0
         with:
           image: ${{ secrets.GCP_REGISTRY }}/silverware-369717/silverware/frontend:latest
-          service: backend
+          service: frontend
           region: us-central1
 
