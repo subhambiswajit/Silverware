@@ -19,7 +19,7 @@ export class HomeComponent {
         this.router.navigate(['/dashboard'])
       }
   }
-  title = 'Silverware';
+  title = 'SilverwarePOS';
   login() {
     this.firebase.login().then( () => {
         console.log('login user success from home')

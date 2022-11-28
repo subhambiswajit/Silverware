@@ -46,3 +46,18 @@ edit apiServer:"" value to local rest API server ex: http://localhost:8000. Curr
 3. Run ``` docker build -t silverware/frontend:latest .```
 4. Run ``` docker run -p 4200:4200 silverware/frontend:latest ``` ex: -p [host machine port]:[container port]
 5. This will run the client application at http://localhost:4200
+
+## CI/CD Setup
+
+The CI/CD setup builds the docker images on every push to master branch and deploys it in GCP cloud run instance. the changes take aprroximately 5 minutes to reflect in GCP clourrun services. 
+
+The CI/CD is enabled using <a href="https://github.com/subhambiswajit/Silverware/actions">Github Actions.</a> 
+
+## Infrastructure Setup 
+![Iris image](readme/system.jpg)
+
+Backend service: https://backend-yopxzgdubq-uc.a.run.app <br>
+Frontend service: https://frontend-yopxzgdubq-uc.a.run.app
+
+## Database User schema
+![Iris image](readme/db.jpg)
