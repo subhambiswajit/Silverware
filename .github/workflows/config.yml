@@ -81,4 +81,12 @@ jobs:
 
       - name: Push docker frontend Image to GCR (Google cloud registry)
         run: docker push ${{ secrets.GCP_REGISTRY }}/silverware-369717/silverware/frontend:latest
+      
+      - name: Deploy Frontend app
+        id: deploy-api-service
+        uses: google-github-actions/deploy-cloudrun@v0
+        with:
+          image: ${{ secrets.GCP_REGISTRY }}/silverware-369717/silverware/frontend:latest
+          service: backend
+          region: us-central1
 
