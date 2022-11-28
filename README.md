@@ -49,7 +49,7 @@ edit apiServer:"" value to local rest API server ex: http://localhost:8000. Curr
 
 ## CI/CD Setup
 
-The CI/CD setup builds the docker images on every push to master branch and deploys it in GCP cloud run instance. the changes take aprroximately 5 minutes to reflect in GCP clourrun services. 
+The CI/CD setup builds the docker images on every push to main branch and deploys it in GCP cloud run instance. the changes take aprroximately 5 minutes to reflect in GCP clourrun services. 
 
 The CI/CD is enabled using <a href="https://github.com/subhambiswajit/Silverware/actions">Github Actions.</a> 
 
